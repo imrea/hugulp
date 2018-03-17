@@ -1,0 +1,11 @@
+node_modules
+yarn-*.log
+.DS_Store
+
+public/*
+!public/.keep
+
+static/*
+!static/.keep
+
+data/manifest

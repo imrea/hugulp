@@ -1,0 +1,62 @@
+{
+  "name": "hugulp-boilerplate",
+  "version": "0.1.0",
+  "description": "HuGulp - Hugo & Gulp Boilerplate",
+  "main": "index.js",
+  "author": "Ákos Imre",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "del-cli": "^1.1.0",
+    "eslint": "^4.19.0",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-changed": "^3.2.0",
+    "gulp-filelog": "^0.4.1",
+    "gulp-inject": "^4.3.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-rev": "^8.1.1",
+    "gulp-rev-napkin": "^0.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "node-sass": "^4.7.2",
+    "npm-run-all": "^4.1.2",
+    "serve": "^6.5.3"
+  },
+  "scripts": {
+    "clean": "del 'static/*' '!static/.keep' 'data/manifest' 'public'",
+    "hugo:watch": "hugo server -DEF --noHTTPCache --noChmod --noTimes",
+    "hugo:build": "hugo -DEF",
+    "assets:watch": "gulp watch",
+    "assets:build": "gulp build",
+    "prestart": "run-s clean",
+    "prebuild": "run-s clean",
+    "start": "run-p assets:watch hugo:watch",
+    "build": "run-s assets:build hugo:build",
+    "demo": "serve -p 1313 public"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "commonjs": true,
+      "es6": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+      "indent": ["error", 2],
+      "linebreak-style": ["error", "unix"],
+      "quotes": ["error", "single"],
+      "semi": ["error", "always"],
+      "no-unused-vars": [
+        "error",
+        {
+          "argsIgnorePattern": "^_"
+        }
+      ]
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5"
+  }
+}

@@ -1,2 +1,3 @@
 # hugulp
-HuGulp - Hugo &amp; Gulp Boilerplate
+
+HuGulp - Hugo & Gulp Boilerplate

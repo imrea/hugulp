@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {{ if fileExists "data/manifest/css.json" }}
+    <link rel="stylesheet" href="/css/{{ index .Site.Data.manifest.css "main.css" }}">
+  {{ else }}
+    <link rel="stylesheet" href="/css/main.css">
+  {{ end }}
+  <title>
+    {{ block "title" . }}
+      {{ if .Page.IsHome }}
+        {{ .Site.Title }}
+      {{ else }}
+        {{ .Page.Title }} | {{ .Site.Title }}
+      {{ end }}
+    {{ end }}
+  </title>
+</head>
+
+<body>
+  {{ partial "header.html" . }}
+  {{ block "main" . }}{{ end }}
+  {{ partial "footer.html" . }}
+</body>
+
+</html>
